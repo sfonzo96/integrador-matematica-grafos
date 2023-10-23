@@ -69,9 +69,9 @@ Partial Class FrmMain
         ' PanelDraw
         ' 
         PanelDraw.BackColor = Color.White
-        PanelDraw.Location = New Point(9, 49)
+        PanelDraw.Location = New Point(9, 44)
         PanelDraw.Name = "PanelDraw"
-        PanelDraw.Size = New Size(516, 389)
+        PanelDraw.Size = New Size(516, 397)
         PanelDraw.TabIndex = 3
         ' 
         ' Panel1
@@ -111,6 +111,7 @@ Partial Class FrmMain
         ' 
         ' TxtEdgesQuantity
         ' 
+        TxtEdgesQuantity.Enabled = False
         TxtEdgesQuantity.Location = New Point(125, 69)
         TxtEdgesQuantity.Name = "TxtEdgesQuantity"
         TxtEdgesQuantity.ReadOnly = True
@@ -119,6 +120,7 @@ Partial Class FrmMain
         ' 
         ' TxtTotalDegree
         ' 
+        TxtTotalDegree.Enabled = False
         TxtTotalDegree.Location = New Point(125, 111)
         TxtTotalDegree.Name = "TxtTotalDegree"
         TxtTotalDegree.ReadOnly = True
@@ -127,6 +129,7 @@ Partial Class FrmMain
         ' 
         ' TxtVertexQuantity
         ' 
+        TxtVertexQuantity.Enabled = False
         TxtVertexQuantity.Location = New Point(125, 27)
         TxtVertexQuantity.Name = "TxtVertexQuantity"
         TxtVertexQuantity.ReadOnly = True

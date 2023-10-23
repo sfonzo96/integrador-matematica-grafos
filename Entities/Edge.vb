@@ -1,7 +1,9 @@
 ﻿Public Class Edge
-    Public Property VertexTuple As Tuple(Of Integer, Integer)
+    Public Shared Property MaxId As Integer = 0
+    Public Property VertexTuple As Tuple(Of Vertex, Vertex)
 
-    Public Sub New(originVertex As Integer, endVertex As Integer)
-        VertexTuple = New Tuple(Of Integer, Integer)(originVertex, endVertex)
+    Public Sub New(originVertex As Vertex, endVertex As Vertex)
+        VertexTuple = New Tuple(Of Vertex, Vertex)(originVertex, endVertex)
+        MaxId += 1
     End Sub
 End Class
