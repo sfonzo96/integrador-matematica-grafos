@@ -3,6 +3,10 @@
     Private Shared FirstPoint As Point = Nothing
     Private Shared SecondPoint As Point = Nothing
     Private Shared DrawingLine As Boolean = False
+
+    Public Shared VertexCount As Integer = 0
+    Public Shared EdgeCount As Integer = 0
+
     Private Sub FrmGraph_Click(sender As Object, e As MouseEventArgs) Handles MyBase.Click
         Dim graphics As Graphics
         graphics = CreateGraphics()
@@ -12,6 +16,7 @@
                 Dim clientCursorPosition As Point = PointToClient(Cursor.Position)
                 graphics.DrawEllipse(pen, clientCursorPosition.X - Radius / 2, clientCursorPosition.Y - Radius / 2, Radius, Radius)
             End Using
+            VertexCount += 1
         End If
 
         If FrmMain.SelectedDrawing = "Edge" Then
@@ -31,6 +36,9 @@
                 FirstPoint = Nothing
                 SecondPoint = Nothing
             End If
+
+            EdgeCount += 1
+
         End If
     End Sub
 End Class
