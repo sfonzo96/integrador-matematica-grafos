@@ -3,10 +3,12 @@
     Public Shared Edges As List(Of Edge)
     Public Shared SelectedDrawing As String = "Vertex"
 
-
     Private Sub BtnClearGraph_Click(sender As Object, e As EventArgs) Handles BtnClearGraph.Click
-        'PanelDraw.Invalidate()
         PanelDraw.Controls.Clear()
+        TxtVertexQuantity.Text = ""
+        TxtEdgesQuantity.Text = ""
+        FrmGraph.VertexCount = 0
+        FrmGraph.EdgeCount = 0
     End Sub
 
     Private Sub BtnDrawEdge_Click(sender As Object, e As EventArgs) Handles BtnDrawEdge.Click
@@ -28,6 +30,6 @@
 
     Private Sub BtnAnalyzeGraph_Click(sender As Object, e As EventArgs) Handles BtnAnalyzeGraph.Click
         TxtVertexQuantity.Text = FrmGraph.VertexCount.ToString()
-        TxtEdgesQuantity.Text = (FrmGraph.EdgeCount / 2).ToString()
+        TxtEdgesQuantity.Text = FrmGraph.EdgeCount.ToString()
     End Sub
 End Class
