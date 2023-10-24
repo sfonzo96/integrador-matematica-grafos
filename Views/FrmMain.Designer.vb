@@ -28,7 +28,11 @@ Partial Class FrmMain
         PanelDraw = New Panel()
         Panel1 = New Panel()
         BtnAnalyzeGraph = New Button()
-        Panel2 = New Panel()
+        PanelData = New Panel()
+        LblSelectVertex = New Label()
+        CombListSelectVertex = New ComboBox()
+        TxtVertexDegree = New TextBox()
+        LblVertexDegree = New Label()
         TxtEdgesQuantity = New TextBox()
         TxtTotalDegree = New TextBox()
         TxtVertexQuantity = New TextBox()
@@ -36,7 +40,7 @@ Partial Class FrmMain
         LblEdgesQuantity = New Label()
         LblVertexQuantity = New Label()
         Panel1.SuspendLayout()
-        Panel2.SuspendLayout()
+        PanelData.SuspendLayout()
         SuspendLayout()
         ' 
         ' BtnClearGraph
@@ -95,19 +99,58 @@ Partial Class FrmMain
         BtnAnalyzeGraph.Text = "Analizar grafo"
         BtnAnalyzeGraph.UseVisualStyleBackColor = True
         ' 
-        ' Panel2
+        ' PanelData
         ' 
-        Panel2.Controls.Add(TxtEdgesQuantity)
-        Panel2.Controls.Add(TxtTotalDegree)
-        Panel2.Controls.Add(TxtVertexQuantity)
-        Panel2.Controls.Add(LblTotalDegree)
-        Panel2.Controls.Add(LblEdgesQuantity)
-        Panel2.Controls.Add(LblVertexQuantity)
-        Panel2.Dock = DockStyle.Right
-        Panel2.Location = New Point(534, 35)
-        Panel2.Name = "Panel2"
-        Panel2.Size = New Size(266, 415)
-        Panel2.TabIndex = 5
+        PanelData.Controls.Add(LblSelectVertex)
+        PanelData.Controls.Add(CombListSelectVertex)
+        PanelData.Controls.Add(TxtVertexDegree)
+        PanelData.Controls.Add(LblVertexDegree)
+        PanelData.Controls.Add(TxtEdgesQuantity)
+        PanelData.Controls.Add(TxtTotalDegree)
+        PanelData.Controls.Add(TxtVertexQuantity)
+        PanelData.Controls.Add(LblTotalDegree)
+        PanelData.Controls.Add(LblEdgesQuantity)
+        PanelData.Controls.Add(LblVertexQuantity)
+        PanelData.Dock = DockStyle.Right
+        PanelData.Location = New Point(534, 35)
+        PanelData.Name = "PanelData"
+        PanelData.Size = New Size(266, 415)
+        PanelData.TabIndex = 5
+        ' 
+        ' LblSelectVertex
+        ' 
+        LblSelectVertex.AutoSize = True
+        LblSelectVertex.Location = New Point(9, 153)
+        LblSelectVertex.Name = "LblSelectVertex"
+        LblSelectVertex.Size = New Size(84, 15)
+        LblSelectVertex.TabIndex = 9
+        LblSelectVertex.Text = "Vertice elegido"
+        ' 
+        ' CombListSelectVertex
+        ' 
+        CombListSelectVertex.FormattingEnabled = True
+        CombListSelectVertex.Location = New Point(125, 150)
+        CombListSelectVertex.Name = "CombListSelectVertex"
+        CombListSelectVertex.Size = New Size(121, 23)
+        CombListSelectVertex.TabIndex = 8
+        ' 
+        ' TxtVertexDegree
+        ' 
+        TxtVertexDegree.Enabled = False
+        TxtVertexDegree.Location = New Point(125, 189)
+        TxtVertexDegree.Name = "TxtVertexDegree"
+        TxtVertexDegree.ReadOnly = True
+        TxtVertexDegree.Size = New Size(126, 23)
+        TxtVertexDegree.TabIndex = 7
+        ' 
+        ' LblVertexDegree
+        ' 
+        LblVertexDegree.AutoSize = True
+        LblVertexDegree.Location = New Point(9, 192)
+        LblVertexDegree.Name = "LblVertexDegree"
+        LblVertexDegree.Size = New Size(39, 15)
+        LblVertexDegree.TabIndex = 6
+        LblVertexDegree.Text = "Grado"
         ' 
         ' TxtEdgesQuantity
         ' 
@@ -169,14 +212,14 @@ Partial Class FrmMain
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Gainsboro
         ClientSize = New Size(800, 450)
-        Controls.Add(Panel2)
+        Controls.Add(PanelData)
         Controls.Add(Panel1)
         Controls.Add(PanelDraw)
         Name = "FrmMain"
         Text = "FrmMain"
         Panel1.ResumeLayout(False)
-        Panel2.ResumeLayout(False)
-        Panel2.PerformLayout()
+        PanelData.ResumeLayout(False)
+        PanelData.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -186,11 +229,15 @@ Partial Class FrmMain
     Friend WithEvents PanelDraw As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents BtnAnalyzeGraph As Button
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents PanelData As Panel
     Friend WithEvents LblTotalDegree As Label
     Friend WithEvents LblEdgesQuantity As Label
     Friend WithEvents LblVertexQuantity As Label
     Friend WithEvents TxtEdgesQuantity As TextBox
     Friend WithEvents TxtTotalDegree As TextBox
     Friend WithEvents TxtVertexQuantity As TextBox
+    Friend WithEvents TxtVertexDegree As TextBox
+    Friend WithEvents LblVertexDegree As Label
+    Friend WithEvents LblSelectVertex As Label
+    Friend WithEvents CombListSelectVertex As ComboBox
 End Class

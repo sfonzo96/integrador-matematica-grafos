@@ -3,14 +3,7 @@
     Public Shared Property SelectedDrawing As String = "Vertex"
 
     Private Sub BtnClearGraph_Click(sender As Object, e As EventArgs) Handles BtnClearGraph.Click
-        PanelDraw.Refresh()
-        VertexService.Vertexes.Clear()
-        EdgeService.Edges.Clear()
-        Vertex.MaxId = 0
-        Edge.MaxId = 0
-        TxtEdgesQuantity.Clear()
-        TxtVertexQuantity.Clear()
-        TxtTotalDegree.Clear()
+        ResetMainForm()
     End Sub
 
     Private Sub BtnDrawEdge_Click(sender As Object, e As EventArgs) Handles BtnDrawEdge.Click
@@ -34,5 +27,31 @@
         TxtEdgesQuantity.Text = Edge.MaxId
         TxtVertexQuantity.Text = Vertex.MaxId
         TxtTotalDegree.Text = VertexService.GetTotalDegree()
+
+        LoadVertexList()
+    End Sub
+
+    Private Sub ListVertex_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CombListSelectVertex.SelectedIndexChanged
+        Dim vertexId As Integer = CombListSelectVertex.SelectedItem.ToString()
+        TxtVertexDegree.Text = VertexService.Vertexes.FirstOrDefault(Function(v) v.VertexId = vertexId)?.Degree
+
+    End Sub
+
+    Private Sub LoadVertexList()
+        For Each vertex In VertexService.Vertexes
+            CombListSelectVertex.Items.Add(vertex.VertexId)
+        Next
+    End Sub
+    Private Sub ResetMainForm()
+        PanelDraw.Refresh()
+        VertexService.Vertexes.Clear()
+        EdgeService.Edges.Clear()
+        Vertex.MaxId = 0
+        Edge.MaxId = 0
+        TxtEdgesQuantity.Clear()
+        TxtVertexQuantity.Clear()
+        TxtTotalDegree.Clear()
+        TxtVertexDegree.Clear()
+        CombListSelectVertex.Items.Clear()
     End Sub
 End Class
