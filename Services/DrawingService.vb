@@ -9,13 +9,19 @@ Public Class DrawingService
         FormGraph = form
     End Sub
     Public Sub DrawVertex()
+        Dim clientCursorPosition As Point = FormGraph.PointToClient(Cursor.Position)
+        If IsOverAVertex(clientCursorPosition) Then
+            MessageBox.Show("Los vértices deben estar más separados!")
+            Return
+        End If
         Using graphics As Graphics = FormGraph.CreateGraphics()
             Using pen As New Pen(Color.Black)
-                Dim clientCursorPosition As Point = FormGraph.PointToClient(Cursor.Position)
                 clientCursorPosition.X -= VertexRadius / 2
                 clientCursorPosition.Y -= VertexRadius / 2
                 graphics.DrawEllipse(pen, clientCursorPosition.X, clientCursorPosition.Y, VertexRadius, VertexRadius)
                 VertexService.Vertexes.Add(New Vertex(clientCursorPosition, VertexRadius))
+                Dim lastVertex As Vertex = VertexService.Vertexes.LastOrDefault
+                graphics.DrawString($"{lastVertex.VertexId}", FrmMain.Font, Brushes.Crimson, lastVertex.Position.X - VertexRadius, lastVertex.Position.Y - VertexRadius)
             End Using
         End Using
     End Sub
@@ -32,6 +38,7 @@ Public Class DrawingService
                     ResetDrawing()
                     Return
                 End If
+
                 DrawingLine = True
                 Return
             ElseIf EdgeSecondVertex Is Nothing Then
@@ -45,7 +52,19 @@ Public Class DrawingService
                 End If
                 DrawingLine = False
 
-                Using pen As New Pen(Color.Red)
+                If IsALoop(EdgeFirstVertex.Position, EdgeSecondVertex.Position) Then
+                    MessageBox.Show("Los bucles todavía no están habilitados :)")
+                    ResetDrawing()
+                    Return
+                End If
+
+                If AlreadyAnEdge(EdgeFirstVertex.Position, EdgeSecondVertex.Position, EdgeService.Edges) Then
+                    MessageBox.Show("Solo se pueden dibujar grafos simples :)")
+                    ResetDrawing()
+                    Return
+                End If
+
+                Using pen As New Pen(Color.Blue)
                     graphics.DrawLine(pen, EdgeFirstVertex.Position + New Point(VertexRadius / 2, VertexRadius / 2), EdgeSecondVertex.Position + New Point(VertexRadius / 2, VertexRadius / 2))
                     EdgeService.Edges.Add(New Edge(EdgeFirstVertex, EdgeSecondVertex))
                     EdgeFirstVertex.Degree += 1
@@ -65,10 +84,32 @@ Public Class DrawingService
         Next
         Return Nothing
     End Function
+    Public Function IsOverAVertex(newVertexPoint As Point) As Boolean
+        For Each vertex In VertexService.Vertexes
+            Dim distance As Decimal = Math.Sqrt((newVertexPoint.X - VertexRadius / 2 - vertex.Position.X) ^ 2 + (newVertexPoint.Y - VertexRadius / 2 - vertex.Position.Y) ^ 2)
+            If distance < 2 * VertexRadius Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
 
-    Public Sub ResetDrawing()
+    Private Sub ResetDrawing()
         EdgeFirstVertex = Nothing
         EdgeSecondVertex = Nothing
         DrawingLine = False
     End Sub
+
+    Private Function IsALoop(firstPoint As Point, secondPoint As Point) As Boolean
+        Return firstPoint = secondPoint
+    End Function
+
+    Private Function AlreadyAnEdge(firstPoint As Point, secondPoint As Point, edges As List(Of Edge)) As Boolean
+        For Each edge In edges
+            If (edge.VertexTuple.Item1.Position = firstPoint OrElse edge.VertexTuple.Item1.Position = secondPoint) AndAlso (edge.VertexTuple.Item2.Position = firstPoint OrElse edge.VertexTuple.Item2.Position = secondPoint) Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
 End Class
