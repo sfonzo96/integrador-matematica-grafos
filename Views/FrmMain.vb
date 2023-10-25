@@ -30,6 +30,8 @@ Public Class FrmMain
         TxtEdgesQuantity.Text = Edge.MaxId
         TxtVertexQuantity.Text = Vertex.MaxId
         TxtTotalDegree.Text = VertexService.GetTotalDegree()
+        VertexService.DefineAdjacencyMatrix
+        VertexService.DefineIncidenceMatrix
         LoadVertexList()
     End Sub
 
@@ -57,4 +59,5 @@ Public Class FrmMain
         TxtVertexDegree.Clear()
         CombListSelectVertex.Items.Clear()
     End Sub
+
 End Class

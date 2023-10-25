@@ -29,6 +29,8 @@ Partial Class FrmMain
         Panel1 = New Panel()
         BtnAnalyzeGraph = New Button()
         PanelData = New Panel()
+        BtnMatrixIncidence = New Button()
+        BtnMatrixAdjacency = New Button()
         LblSelectVertex = New Label()
         CombListSelectVertex = New ComboBox()
         TxtVertexDegree = New TextBox()
@@ -101,6 +103,8 @@ Partial Class FrmMain
         ' 
         ' PanelData
         ' 
+        PanelData.Controls.Add(BtnMatrixIncidence)
+        PanelData.Controls.Add(BtnMatrixAdjacency)
         PanelData.Controls.Add(LblSelectVertex)
         PanelData.Controls.Add(CombListSelectVertex)
         PanelData.Controls.Add(TxtVertexDegree)
@@ -116,6 +120,24 @@ Partial Class FrmMain
         PanelData.Name = "PanelData"
         PanelData.Size = New Size(266, 415)
         PanelData.TabIndex = 5
+        ' 
+        ' BtnMatrixIncidence
+        ' 
+        BtnMatrixIncidence.Location = New Point(157, 250)
+        BtnMatrixIncidence.Name = "BtnMatrixIncidence"
+        BtnMatrixIncidence.Size = New Size(75, 40)
+        BtnMatrixIncidence.TabIndex = 11
+        BtnMatrixIncidence.Text = "Matriz de incidencia"
+        BtnMatrixIncidence.UseVisualStyleBackColor = True
+        ' 
+        ' BtnMatrixAdjacency
+        ' 
+        BtnMatrixAdjacency.Location = New Point(34, 250)
+        BtnMatrixAdjacency.Name = "BtnMatrixAdjacency"
+        BtnMatrixAdjacency.Size = New Size(75, 40)
+        BtnMatrixAdjacency.TabIndex = 10
+        BtnMatrixAdjacency.Text = "Matriz de adyacencia"
+        BtnMatrixAdjacency.UseVisualStyleBackColor = True
         ' 
         ' LblSelectVertex
         ' 
@@ -240,4 +262,6 @@ Partial Class FrmMain
     Friend WithEvents LblVertexDegree As Label
     Friend WithEvents LblSelectVertex As Label
     Friend WithEvents CombListSelectVertex As ComboBox
+    Friend WithEvents BtnMatrixIncidence As Button
+    Friend WithEvents BtnMatrixAdjacency As Button
 End Class
