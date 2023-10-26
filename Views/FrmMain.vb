@@ -30,8 +30,6 @@ Public Class FrmMain
         TxtEdgesQuantity.Text = Edge.MaxId
         TxtVertexQuantity.Text = Vertex.MaxId
         TxtTotalDegree.Text = VertexService.GetTotalDegree()
-        VertexService.DefineAdjacencyMatrix
-        VertexService.DefineIncidenceMatrix
         LoadVertexList()
     End Sub
 
@@ -60,4 +58,39 @@ Public Class FrmMain
         CombListSelectVertex.Items.Clear()
     End Sub
 
+    Private Sub BtnMatrixAdjacency_Click(sender As Object, e As EventArgs) Handles BtnMatrixAdjacency.Click
+        Dim frmMatrix As New FrmMatrix()
+        Dim adjacencyMatrix As Integer(,) = MatrixService.GetAdjacencyMatrix
+        Dim numberOfColumns As Integer = adjacencyMatrix.GetLength(1)
+        Dim numberOfRows As Integer = adjacencyMatrix.GetLength(0)
+
+        frmMatrix.DGridMatrix.ColumnCount = numberOfColumns
+        frmMatrix.DGridMatrix.RowCount = numberOfRows
+
+        For rowIndex As Integer = 0 To numberOfRows - 1
+            For columnIndex As Integer = 0 To numberOfColumns - 1
+                frmMatrix.DGridMatrix(columnIndex, rowIndex).Value = adjacencyMatrix(rowIndex, columnIndex).ToString()
+            Next
+        Next
+
+        frmMatrix.ShowDialog()
+    End Sub
+
+    Private Sub BtnMatrixIncidence_Click(sender As Object, e As EventArgs) Handles BtnMatrixIncidence.Click
+        Dim frmMatrix As New FrmMatrix()
+        Dim incidenceMatrix As Integer(,) = MatrixService.GetIncidenceMatrix
+        Dim numberOfColumns As Integer = incidenceMatrix.GetLength(1)
+        Dim numberOfRows As Integer = incidenceMatrix.GetLength(0)
+
+        frmMatrix.DGridMatrix.ColumnCount = numberOfColumns
+        frmMatrix.DGridMatrix.RowCount = numberOfRows
+
+        For rowIndex As Integer = 0 To numberOfRows - 1
+            For columnIndex As Integer = 0 To numberOfColumns - 1
+                frmMatrix.DGridMatrix(columnIndex, rowIndex).Value = incidenceMatrix(rowIndex, columnIndex).ToString()
+            Next
+        Next
+
+        frmMatrix.ShowDialog()
+    End Sub
 End Class
