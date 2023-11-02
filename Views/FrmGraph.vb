@@ -1,43 +1,23 @@
 ﻿Public Class FrmGraph
-    Private Shared Radius As Decimal = 15
-    Private Shared FirstPoint As Point = Nothing
-    Private Shared SecondPoint As Point = Nothing
-    Private Shared DrawingLine As Boolean = False
+    Private Property DrawingService As DrawingService
+    Public Sub New()
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        DrawingService = New DrawingService(Me)
+    End Sub
 
-    Public Shared VertexCount As Integer = 0
-    Public Shared EdgeCount As Integer = 0
     Private Sub FrmGraph_Click(sender As Object, e As MouseEventArgs) Handles MyBase.Click
-        Dim graphics As Graphics
-        graphics = CreateGraphics()
-
-        If FrmMain.SelectedDrawing = "Vertex" Then
-            Using pen As New Pen(Color.Black)
-                Dim clientCursorPosition As Point = PointToClient(Cursor.Position)
-                graphics.DrawEllipse(pen, clientCursorPosition.X - Radius / 2, clientCursorPosition.Y - Radius / 2, Radius, Radius)
-            End Using
-            VertexCount += 1
-        End If
-
-        If FrmMain.SelectedDrawing = "Edge" Then
-            If FirstPoint = Nothing Then
-                FirstPoint = PointToClient(Cursor.Position)
-                DrawingLine = True
-            ElseIf SecondPoint = Nothing Then
-                SecondPoint = PointToClient(Cursor.Position)
-                DrawingLine = False
+        Try
+            If FrmMain.SelectedDrawing = "Vertex" Then
+                DrawingService.DrawVertex()
             End If
 
-            If DrawingLine = False Then
-                Using pen As New Pen(Color.Red)
-                    graphics.DrawLine(pen, FirstPoint, SecondPoint)
-                End Using
-
-                FirstPoint = Nothing
-                SecondPoint = Nothing
-
-                EdgeCount += 1
+            If FrmMain.SelectedDrawing = "Edge" Then
+                DrawingService.DrawEdge()
             End If
-
-        End If
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error, intentalo nuevamente.")
+        End Try
     End Sub
 End Class
