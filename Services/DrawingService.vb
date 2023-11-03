@@ -15,15 +15,16 @@ Public Class DrawingService
             Return
         End If
         Using graphics As Graphics = FormGraph.CreateGraphics()
-            Using pen As New Pen(Color.Black)
+            Using brush As New SolidBrush(Color.Blue)
                 clientCursorPosition.X -= VertexRadius / 2
                 clientCursorPosition.Y -= VertexRadius / 2
-                graphics.DrawEllipse(pen, clientCursorPosition.X, clientCursorPosition.Y, VertexRadius, VertexRadius)
+                graphics.FillEllipse(brush, clientCursorPosition.X, clientCursorPosition.Y, VertexRadius, VertexRadius)
                 VertexService.Vertexes.Add(New Vertex(clientCursorPosition, VertexRadius))
                 Dim lastVertex As Vertex = VertexService.Vertexes.LastOrDefault
-                graphics.DrawString($"{lastVertex.VertexId}", FrmMain.Font, Brushes.Crimson, lastVertex.Position.X - VertexRadius, lastVertex.Position.Y - VertexRadius)
+                graphics.DrawString($"{lastVertex.VertexId}", FrmMain.Font, Brushes.Black, lastVertex.Position.X - VertexRadius, lastVertex.Position.Y - VertexRadius)
             End Using
         End Using
+
     End Sub
     Public Sub DrawEdge()
         Using graphics As Graphics = FormGraph.CreateGraphics()

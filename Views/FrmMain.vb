@@ -6,14 +6,19 @@ Public Class FrmMain
     Private Sub BtnClearGraph_Click(sender As Object, e As EventArgs) Handles BtnClearGraph.Click
         ResetMainForm()
         ResetAnalisis()
+        ResetBtnColor()
     End Sub
 
     Private Sub BtnDrawEdge_Click(sender As Object, e As EventArgs) Handles BtnDrawEdge.Click
         SelectedDrawing = "Edge"
+        BtnDrawVertex.BackColor = Color.RoyalBlue
+        BtnDrawEdge.BackColor = Color.Red
     End Sub
 
     Private Sub BtnDrawVertex_Click(sender As Object, e As EventArgs) Handles BtnDrawVertex.Click
         SelectedDrawing = "Vertex"
+        BtnDrawVertex.BackColor = Color.Red
+        BtnDrawEdge.BackColor = Color.RoyalBlue
     End Sub
 
     Private Sub PanelDraw_Paint(sender As Object, e As PaintEventArgs) Handles PanelDraw.Paint
@@ -31,6 +36,8 @@ Public Class FrmMain
         TxtVertexQuantity.Text = Vertex.MaxId
         TxtTotalDegree.Text = VertexService.GetTotalDegree()
         LoadVertexList()
+        BtnDrawVertex.BackColor = Color.RoyalBlue
+        BtnDrawEdge.BackColor = Color.RoyalBlue
     End Sub
 
     Private Sub ListVertex_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CombListSelectVertex.SelectedIndexChanged
@@ -58,6 +65,11 @@ Public Class FrmMain
         CombListSelectVertex.Items.Clear()
     End Sub
 
+    Private Sub ResetBtnColor()
+        BtnDrawVertex.BackColor = Color.RoyalBlue
+        BtnDrawEdge.BackColor = Color.RoyalBlue
+    End Sub
+
     Private Sub BtnMatrixAdjacency_Click(sender As Object, e As EventArgs) Handles BtnMatrixAdjacency.Click
         Dim frmMatrix As New FrmMatrix()
         Dim adjacencyMatrix As Integer(,) = MatrixService.GetAdjacencyMatrix
@@ -74,6 +86,10 @@ Public Class FrmMain
         Next
 
         frmMatrix.ShowDialog()
+
+
+        BtnDrawVertex.BackColor = Color.RoyalBlue
+        BtnDrawEdge.BackColor = Color.RoyalBlue
     End Sub
 
     Private Sub BtnMatrixIncidence_Click(sender As Object, e As EventArgs) Handles BtnMatrixIncidence.Click
@@ -92,5 +108,8 @@ Public Class FrmMain
         Next
 
         frmMatrix.ShowDialog()
+
+
+        ResetBtnColor()
     End Sub
 End Class

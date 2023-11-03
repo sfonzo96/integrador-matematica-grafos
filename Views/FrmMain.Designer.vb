@@ -22,12 +22,12 @@ Partial Class FrmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        PanelDraw = New Panel()
+        BtnAnalyzeGraph = New Button()
         BtnClearGraph = New Button()
+        Panel1 = New Panel()
         BtnDrawVertex = New Button()
         BtnDrawEdge = New Button()
-        PanelDraw = New Panel()
-        Panel1 = New Panel()
-        BtnAnalyzeGraph = New Button()
         PanelData = New Panel()
         BtnMatrixIncidence = New Button()
         BtnMatrixAdjacency = New Button()
@@ -45,64 +45,86 @@ Partial Class FrmMain
         PanelData.SuspendLayout()
         SuspendLayout()
         ' 
-        ' BtnClearGraph
-        ' 
-        BtnClearGraph.Location = New Point(222, 6)
-        BtnClearGraph.Name = "BtnClearGraph"
-        BtnClearGraph.Size = New Size(99, 23)
-        BtnClearGraph.TabIndex = 0
-        BtnClearGraph.Text = "Limpiar grafo"
-        BtnClearGraph.UseVisualStyleBackColor = True
-        ' 
-        ' BtnDrawVertex
-        ' 
-        BtnDrawVertex.Location = New Point(12, 6)
-        BtnDrawVertex.Name = "BtnDrawVertex"
-        BtnDrawVertex.Size = New Size(99, 23)
-        BtnDrawVertex.TabIndex = 1
-        BtnDrawVertex.Text = "Dibujar vértices"
-        BtnDrawVertex.UseVisualStyleBackColor = True
-        ' 
-        ' BtnDrawEdge
-        ' 
-        BtnDrawEdge.Location = New Point(117, 6)
-        BtnDrawEdge.Name = "BtnDrawEdge"
-        BtnDrawEdge.Size = New Size(99, 23)
-        BtnDrawEdge.TabIndex = 2
-        BtnDrawEdge.Text = "Dibujar aristas"
-        BtnDrawEdge.UseVisualStyleBackColor = True
-        ' 
         ' PanelDraw
         ' 
         PanelDraw.BackColor = Color.White
-        PanelDraw.Location = New Point(9, 44)
+        PanelDraw.Location = New Point(9, 56)
         PanelDraw.Name = "PanelDraw"
-        PanelDraw.Size = New Size(516, 397)
+        PanelDraw.Size = New Size(540, 397)
         PanelDraw.TabIndex = 3
-        ' 
-        ' Panel1
-        ' 
-        Panel1.Controls.Add(BtnAnalyzeGraph)
-        Panel1.Controls.Add(BtnDrawVertex)
-        Panel1.Controls.Add(BtnDrawEdge)
-        Panel1.Controls.Add(BtnClearGraph)
-        Panel1.Dock = DockStyle.Top
-        Panel1.Location = New Point(0, 0)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(800, 35)
-        Panel1.TabIndex = 4
         ' 
         ' BtnAnalyzeGraph
         ' 
-        BtnAnalyzeGraph.Location = New Point(327, 6)
+        BtnAnalyzeGraph.BackColor = Color.RoyalBlue
+        BtnAnalyzeGraph.FlatAppearance.BorderSize = 0
+        BtnAnalyzeGraph.FlatStyle = FlatStyle.Flat
+        BtnAnalyzeGraph.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnAnalyzeGraph.ForeColor = SystemColors.ControlLightLight
+        BtnAnalyzeGraph.Location = New Point(281, 9)
         BtnAnalyzeGraph.Name = "BtnAnalyzeGraph"
-        BtnAnalyzeGraph.Size = New Size(99, 23)
-        BtnAnalyzeGraph.TabIndex = 3
-        BtnAnalyzeGraph.Text = "Analizar grafo"
-        BtnAnalyzeGraph.UseVisualStyleBackColor = True
+        BtnAnalyzeGraph.Size = New Size(131, 39)
+        BtnAnalyzeGraph.TabIndex = 2
+        BtnAnalyzeGraph.Text = "ANALIZAR GRAFO"
+        BtnAnalyzeGraph.UseVisualStyleBackColor = False
+        ' 
+        ' BtnClearGraph
+        ' 
+        BtnClearGraph.BackColor = Color.RoyalBlue
+        BtnClearGraph.FlatAppearance.BorderSize = 0
+        BtnClearGraph.FlatStyle = FlatStyle.Flat
+        BtnClearGraph.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnClearGraph.ForeColor = SystemColors.ControlLightLight
+        BtnClearGraph.Location = New Point(418, 9)
+        BtnClearGraph.Name = "BtnClearGraph"
+        BtnClearGraph.Size = New Size(131, 39)
+        BtnClearGraph.TabIndex = 3
+        BtnClearGraph.Text = "LIMPIAR GRAFO"
+        BtnClearGraph.UseVisualStyleBackColor = False
+        ' 
+        ' Panel1
+        ' 
+        Panel1.BackColor = Color.FromArgb(CByte(21), CByte(21), CByte(21))
+        Panel1.Controls.Add(BtnClearGraph)
+        Panel1.Controls.Add(BtnDrawVertex)
+        Panel1.Controls.Add(BtnAnalyzeGraph)
+        Panel1.Controls.Add(BtnDrawEdge)
+        Panel1.Dock = DockStyle.Top
+        Panel1.Location = New Point(0, 0)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(830, 50)
+        Panel1.TabIndex = 4
+        ' 
+        ' BtnDrawVertex
+        ' 
+        BtnDrawVertex.BackColor = Color.RoyalBlue
+        BtnDrawVertex.FlatAppearance.BorderSize = 0
+        BtnDrawVertex.FlatStyle = FlatStyle.Flat
+        BtnDrawVertex.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnDrawVertex.ForeColor = SystemColors.ControlLightLight
+        BtnDrawVertex.Location = New Point(7, 9)
+        BtnDrawVertex.Name = "BtnDrawVertex"
+        BtnDrawVertex.Size = New Size(131, 39)
+        BtnDrawVertex.TabIndex = 0
+        BtnDrawVertex.Text = "DIBUJAR VÉRTICES"
+        BtnDrawVertex.UseVisualStyleBackColor = False
+        ' 
+        ' BtnDrawEdge
+        ' 
+        BtnDrawEdge.BackColor = Color.RoyalBlue
+        BtnDrawEdge.FlatAppearance.BorderSize = 0
+        BtnDrawEdge.FlatStyle = FlatStyle.Flat
+        BtnDrawEdge.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnDrawEdge.ForeColor = SystemColors.ControlLightLight
+        BtnDrawEdge.Location = New Point(144, 9)
+        BtnDrawEdge.Name = "BtnDrawEdge"
+        BtnDrawEdge.Size = New Size(131, 39)
+        BtnDrawEdge.TabIndex = 1
+        BtnDrawEdge.Text = "DIBUJAR ARISTAS"
+        BtnDrawEdge.UseVisualStyleBackColor = False
         ' 
         ' PanelData
         ' 
+        PanelData.BackColor = Color.Transparent
         PanelData.Controls.Add(BtnMatrixIncidence)
         PanelData.Controls.Add(BtnMatrixAdjacency)
         PanelData.Controls.Add(LblSelectVertex)
@@ -116,44 +138,57 @@ Partial Class FrmMain
         PanelData.Controls.Add(LblEdgesQuantity)
         PanelData.Controls.Add(LblVertexQuantity)
         PanelData.Dock = DockStyle.Right
-        PanelData.Location = New Point(534, 35)
+        PanelData.ForeColor = SystemColors.ControlLightLight
+        PanelData.Location = New Point(564, 50)
         PanelData.Name = "PanelData"
-        PanelData.Size = New Size(266, 415)
+        PanelData.Size = New Size(266, 413)
         PanelData.TabIndex = 5
         ' 
         ' BtnMatrixIncidence
         ' 
-        BtnMatrixIncidence.Location = New Point(157, 250)
+        BtnMatrixIncidence.BackColor = Color.RoyalBlue
+        BtnMatrixIncidence.FlatAppearance.BorderSize = 0
+        BtnMatrixIncidence.FlatStyle = FlatStyle.Flat
+        BtnMatrixIncidence.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnMatrixIncidence.ForeColor = SystemColors.ControlLightLight
+        BtnMatrixIncidence.Location = New Point(34, 327)
         BtnMatrixIncidence.Name = "BtnMatrixIncidence"
-        BtnMatrixIncidence.Size = New Size(75, 40)
-        BtnMatrixIncidence.TabIndex = 11
-        BtnMatrixIncidence.Text = "Matriz de incidencia"
-        BtnMatrixIncidence.UseVisualStyleBackColor = True
+        BtnMatrixIncidence.Size = New Size(198, 49)
+        BtnMatrixIncidence.TabIndex = 12
+        BtnMatrixIncidence.Text = "MATRIZ DE INCIDENCIA"
+        BtnMatrixIncidence.UseVisualStyleBackColor = False
         ' 
         ' BtnMatrixAdjacency
         ' 
-        BtnMatrixAdjacency.Location = New Point(34, 250)
+        BtnMatrixAdjacency.BackColor = Color.RoyalBlue
+        BtnMatrixAdjacency.FlatAppearance.BorderSize = 0
+        BtnMatrixAdjacency.FlatStyle = FlatStyle.Flat
+        BtnMatrixAdjacency.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnMatrixAdjacency.ForeColor = SystemColors.ControlLightLight
+        BtnMatrixAdjacency.Location = New Point(34, 245)
         BtnMatrixAdjacency.Name = "BtnMatrixAdjacency"
-        BtnMatrixAdjacency.Size = New Size(75, 40)
-        BtnMatrixAdjacency.TabIndex = 10
-        BtnMatrixAdjacency.Text = "Matriz de adyacencia"
-        BtnMatrixAdjacency.UseVisualStyleBackColor = True
+        BtnMatrixAdjacency.Size = New Size(198, 49)
+        BtnMatrixAdjacency.TabIndex = 4
+        BtnMatrixAdjacency.Text = "MATRIZ DE ADYACENCIA"
+        BtnMatrixAdjacency.UseVisualStyleBackColor = False
         ' 
         ' LblSelectVertex
         ' 
         LblSelectVertex.AutoSize = True
-        LblSelectVertex.Location = New Point(9, 153)
+        LblSelectVertex.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        LblSelectVertex.ForeColor = SystemColors.ControlLightLight
+        LblSelectVertex.Location = New Point(4, 152)
         LblSelectVertex.Name = "LblSelectVertex"
-        LblSelectVertex.Size = New Size(84, 15)
+        LblSelectVertex.Size = New Size(92, 16)
         LblSelectVertex.TabIndex = 9
-        LblSelectVertex.Text = "Vertice elegido"
+        LblSelectVertex.Text = "Vértice elegido"
         ' 
         ' CombListSelectVertex
         ' 
         CombListSelectVertex.FormattingEnabled = True
         CombListSelectVertex.Location = New Point(125, 150)
         CombListSelectVertex.Name = "CombListSelectVertex"
-        CombListSelectVertex.Size = New Size(121, 23)
+        CombListSelectVertex.Size = New Size(126, 23)
         CombListSelectVertex.TabIndex = 8
         ' 
         ' TxtVertexDegree
@@ -168,9 +203,11 @@ Partial Class FrmMain
         ' LblVertexDegree
         ' 
         LblVertexDegree.AutoSize = True
-        LblVertexDegree.Location = New Point(9, 192)
+        LblVertexDegree.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        LblVertexDegree.ForeColor = SystemColors.ControlLightLight
+        LblVertexDegree.Location = New Point(4, 191)
         LblVertexDegree.Name = "LblVertexDegree"
-        LblVertexDegree.Size = New Size(39, 15)
+        LblVertexDegree.Size = New Size(42, 16)
         LblVertexDegree.TabIndex = 6
         LblVertexDegree.Text = "Grado"
         ' 
@@ -204,27 +241,33 @@ Partial Class FrmMain
         ' LblTotalDegree
         ' 
         LblTotalDegree.AutoSize = True
-        LblTotalDegree.Location = New Point(9, 114)
+        LblTotalDegree.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        LblTotalDegree.ForeColor = SystemColors.ControlLightLight
+        LblTotalDegree.Location = New Point(4, 113)
         LblTotalDegree.Name = "LblTotalDegree"
-        LblTotalDegree.Size = New Size(66, 15)
+        LblTotalDegree.Size = New Size(71, 16)
         LblTotalDegree.TabIndex = 2
         LblTotalDegree.Text = "Grado total"
         ' 
         ' LblEdgesQuantity
         ' 
         LblEdgesQuantity.AutoSize = True
-        LblEdgesQuantity.Location = New Point(9, 72)
+        LblEdgesQuantity.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        LblEdgesQuantity.ForeColor = SystemColors.ControlLightLight
+        LblEdgesQuantity.Location = New Point(4, 71)
         LblEdgesQuantity.Name = "LblEdgesQuantity"
-        LblEdgesQuantity.Size = New Size(103, 15)
+        LblEdgesQuantity.Size = New Size(115, 16)
         LblEdgesQuantity.TabIndex = 1
         LblEdgesQuantity.Text = "Número de aristas"
         ' 
         ' LblVertexQuantity
         ' 
         LblVertexQuantity.AutoSize = True
-        LblVertexQuantity.Location = New Point(9, 30)
+        LblVertexQuantity.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        LblVertexQuantity.ForeColor = SystemColors.ControlLightLight
+        LblVertexQuantity.Location = New Point(4, 30)
         LblVertexQuantity.Name = "LblVertexQuantity"
-        LblVertexQuantity.Size = New Size(110, 15)
+        LblVertexQuantity.Size = New Size(121, 16)
         LblVertexQuantity.TabIndex = 0
         LblVertexQuantity.Text = "Número de vértices"
         ' 
@@ -232,20 +275,19 @@ Partial Class FrmMain
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.Gainsboro
-        ClientSize = New Size(800, 450)
+        BackColor = Color.FromArgb(CByte(21), CByte(21), CByte(21))
+        ClientSize = New Size(830, 463)
         Controls.Add(PanelData)
         Controls.Add(Panel1)
         Controls.Add(PanelDraw)
+        MaximizeBox = False
         Name = "FrmMain"
-        Text = "FrmMain"
+        Text = "APP Grafos"
         Panel1.ResumeLayout(False)
         PanelData.ResumeLayout(False)
         PanelData.PerformLayout()
         ResumeLayout(False)
     End Sub
-
-    Friend WithEvents BtnClearGraph As Button
     Friend WithEvents BtnDrawVertex As Button
     Friend WithEvents BtnDrawEdge As Button
     Friend WithEvents PanelDraw As Panel
@@ -264,4 +306,11 @@ Partial Class FrmMain
     Friend WithEvents CombListSelectVertex As ComboBox
     Friend WithEvents BtnMatrixIncidence As Button
     Friend WithEvents BtnMatrixAdjacency As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents BtnClearGraph As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Button5 As Button
 End Class

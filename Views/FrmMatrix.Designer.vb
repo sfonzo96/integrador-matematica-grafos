@@ -20,7 +20,9 @@ Partial Class FrmMatrix
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+
+
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         DGridMatrix = New DataGridView()
         CType(DGridMatrix, ComponentModel.ISupportInitialize).BeginInit()
@@ -41,7 +43,7 @@ Partial Class FrmMatrix
         ' 
         ' FrmMatrix
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(366, 245)
         Controls.Add(DGridMatrix)
@@ -50,6 +52,28 @@ Partial Class FrmMatrix
         CType(DGridMatrix, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
+
+    'added
+    Private Sub DGridMatrix_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs)
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 AndAlso e.RowIndex < DGridMatrix.RowCount AndAlso e.ColumnIndex < DGridMatrix.ColumnCount Then
+            ' Establece el alto y ancho de la celda para que sea cuadrada
+            Dim cellSize As Integer = Math.Min(e.CellBounds.Width, e.CellBounds.Height)
+            Dim cellBounds As New Rectangle(e.CellBounds.X, e.CellBounds.Y, cellSize, cellSize)
+
+            ' Pinta el fondo de la celda
+            e.Paint(e.CellBounds, DataGridViewPaintParts.Background Or DataGridViewPaintParts.Border)
+
+            ' Puedes personalizar la apariencia de la celda aquí
+            ' Por ejemplo, pinta un círculo en la celda
+            Using brush As New SolidBrush(Color.Blue)
+                e.Graphics.FillEllipse(brush, cellBounds)
+            End Using
+
+            ' Evita que se pinte el contenido predeterminado de la celda
+            e.Handled = True
+        End If
+    End Sub
+    'added
 
     Friend WithEvents DGridMatrix As DataGridView
 End Class
