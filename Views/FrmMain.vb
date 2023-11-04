@@ -1,4 +1,6 @@
-﻿Public Class FrmMain
+﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+
+Public Class FrmMain
     Public Shared Property SelectedDrawing As String = "Vertex"
 
     Private Sub BtnClearGraph_Click(sender As Object, e As EventArgs) Handles BtnClearGraph.Click
@@ -180,6 +182,7 @@
         For Each vertex In VertexService.Vertexes
             CombListSelectVertex.Items.Add($"v{vertex.VertexId}")
         Next
+        CombListSelectVertex.DropDownHeight = CombListSelectVertex.ItemHeight * (CombListSelectVertex.Items.Count + 1)
     End Sub
 
     Private Sub ResetMainForm()
@@ -197,5 +200,7 @@
         TxtTotalDegree.Clear()
         TxtVertexDegree.Clear()
         CombListSelectVertex.Items.Clear()
+        CombListSelectVertex.ResetText()
+        CombListSelectVertex.DropDownHeight = CombListSelectVertex.ItemHeight
     End Sub
 End Class
