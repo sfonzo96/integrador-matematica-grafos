@@ -38,17 +38,18 @@ Partial Class FrmMatrix
         DGridMatrix.Name = "DGridMatrix"
         DGridMatrix.ReadOnly = True
         DGridMatrix.RowTemplate.Height = 25
-        DGridMatrix.Size = New Size(366, 245)
+        DGridMatrix.Size = New Size(434, 357)
         DGridMatrix.TabIndex = 0
         ' 
         ' FrmMatrix
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(366, 245)
+        AutoScroll = True
+        AutoSize = True
+        ClientSize = New Size(434, 357)
         Controls.Add(DGridMatrix)
         Name = "FrmMatrix"
-        Text = "FrmMatrix"
         CType(DGridMatrix, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
