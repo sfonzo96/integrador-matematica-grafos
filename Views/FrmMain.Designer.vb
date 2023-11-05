@@ -175,99 +175,99 @@ Partial Class FrmMain
         ' LblSelectVertex
         ' 
         LblSelectVertex.AutoSize = True
-        LblSelectVertex.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        LblSelectVertex.Font = New Font("Bahnschrift", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         LblSelectVertex.ForeColor = SystemColors.ControlLightLight
-        LblSelectVertex.Location = New Point(4, 152)
+        LblSelectVertex.Location = New Point(4, 149)
         LblSelectVertex.Name = "LblSelectVertex"
-        LblSelectVertex.Size = New Size(92, 16)
+        LblSelectVertex.Size = New Size(106, 18)
         LblSelectVertex.TabIndex = 9
         LblSelectVertex.Text = "Vértice elegido"
         ' 
         ' CombListSelectVertex
         ' 
         CombListSelectVertex.FormattingEnabled = True
-        CombListSelectVertex.Location = New Point(125, 150)
+        CombListSelectVertex.Location = New Point(148, 144)
         CombListSelectVertex.Name = "CombListSelectVertex"
-        CombListSelectVertex.Size = New Size(126, 23)
+        CombListSelectVertex.Size = New Size(109, 23)
         CombListSelectVertex.TabIndex = 8
         ' 
         ' TxtVertexDegree
         ' 
         TxtVertexDegree.Enabled = False
-        TxtVertexDegree.Location = New Point(125, 189)
+        TxtVertexDegree.Location = New Point(148, 183)
         TxtVertexDegree.Name = "TxtVertexDegree"
         TxtVertexDegree.ReadOnly = True
-        TxtVertexDegree.Size = New Size(126, 23)
+        TxtVertexDegree.Size = New Size(109, 23)
         TxtVertexDegree.TabIndex = 7
         ' 
         ' LblVertexDegree
         ' 
         LblVertexDegree.AutoSize = True
-        LblVertexDegree.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        LblVertexDegree.Font = New Font("Bahnschrift", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         LblVertexDegree.ForeColor = SystemColors.ControlLightLight
-        LblVertexDegree.Location = New Point(4, 191)
+        LblVertexDegree.Location = New Point(4, 188)
         LblVertexDegree.Name = "LblVertexDegree"
-        LblVertexDegree.Size = New Size(42, 16)
+        LblVertexDegree.Size = New Size(118, 18)
         LblVertexDegree.TabIndex = 6
-        LblVertexDegree.Text = "Grado"
+        LblVertexDegree.Text = "Grado de vértice"
         ' 
         ' TxtEdgesQuantity
         ' 
         TxtEdgesQuantity.Enabled = False
-        TxtEdgesQuantity.Location = New Point(125, 69)
+        TxtEdgesQuantity.Location = New Point(148, 66)
         TxtEdgesQuantity.Name = "TxtEdgesQuantity"
         TxtEdgesQuantity.ReadOnly = True
-        TxtEdgesQuantity.Size = New Size(126, 23)
+        TxtEdgesQuantity.Size = New Size(109, 23)
         TxtEdgesQuantity.TabIndex = 5
         ' 
         ' TxtTotalDegree
         ' 
         TxtTotalDegree.Enabled = False
-        TxtTotalDegree.Location = New Point(125, 111)
+        TxtTotalDegree.Location = New Point(148, 105)
         TxtTotalDegree.Name = "TxtTotalDegree"
         TxtTotalDegree.ReadOnly = True
-        TxtTotalDegree.Size = New Size(126, 23)
+        TxtTotalDegree.Size = New Size(109, 23)
         TxtTotalDegree.TabIndex = 4
         ' 
         ' TxtVertexQuantity
         ' 
         TxtVertexQuantity.Enabled = False
-        TxtVertexQuantity.Location = New Point(125, 27)
+        TxtVertexQuantity.Location = New Point(148, 27)
         TxtVertexQuantity.Name = "TxtVertexQuantity"
         TxtVertexQuantity.ReadOnly = True
-        TxtVertexQuantity.Size = New Size(126, 23)
+        TxtVertexQuantity.Size = New Size(109, 23)
         TxtVertexQuantity.TabIndex = 3
         ' 
         ' LblTotalDegree
         ' 
         LblTotalDegree.AutoSize = True
-        LblTotalDegree.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        LblTotalDegree.Font = New Font("Bahnschrift", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         LblTotalDegree.ForeColor = SystemColors.ControlLightLight
-        LblTotalDegree.Location = New Point(4, 113)
+        LblTotalDegree.Location = New Point(4, 110)
         LblTotalDegree.Name = "LblTotalDegree"
-        LblTotalDegree.Size = New Size(71, 16)
+        LblTotalDegree.Size = New Size(82, 18)
         LblTotalDegree.TabIndex = 2
         LblTotalDegree.Text = "Grado total"
         ' 
         ' LblEdgesQuantity
         ' 
         LblEdgesQuantity.AutoSize = True
-        LblEdgesQuantity.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        LblEdgesQuantity.Font = New Font("Bahnschrift", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         LblEdgesQuantity.ForeColor = SystemColors.ControlLightLight
         LblEdgesQuantity.Location = New Point(4, 71)
         LblEdgesQuantity.Name = "LblEdgesQuantity"
-        LblEdgesQuantity.Size = New Size(115, 16)
+        LblEdgesQuantity.Size = New Size(133, 18)
         LblEdgesQuantity.TabIndex = 1
         LblEdgesQuantity.Text = "Número de aristas"
         ' 
         ' LblVertexQuantity
         ' 
         LblVertexQuantity.AutoSize = True
-        LblVertexQuantity.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        LblVertexQuantity.Font = New Font("Bahnschrift", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         LblVertexQuantity.ForeColor = SystemColors.ControlLightLight
         LblVertexQuantity.Location = New Point(4, 30)
         LblVertexQuantity.Name = "LblVertexQuantity"
-        LblVertexQuantity.Size = New Size(121, 16)
+        LblVertexQuantity.Size = New Size(140, 18)
         LblVertexQuantity.TabIndex = 0
         LblVertexQuantity.Text = "Número de vértices"
         ' 
@@ -275,13 +275,16 @@ Partial Class FrmMain
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        AutoSizeMode = AutoSizeMode.GrowAndShrink
         BackColor = Color.FromArgb(CByte(21), CByte(21), CByte(21))
         ClientSize = New Size(830, 463)
         Controls.Add(PanelData)
         Controls.Add(Panel1)
         Controls.Add(PanelDraw)
+        FormBorderStyle = FormBorderStyle.FixedDialog
         MaximizeBox = False
         Name = "FrmMain"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "APP Grafos"
         Panel1.ResumeLayout(False)
         PanelData.ResumeLayout(False)
