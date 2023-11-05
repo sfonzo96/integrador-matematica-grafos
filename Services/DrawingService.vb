@@ -15,15 +15,16 @@ Public Class DrawingService
             Return
         End If
         Using graphics As Graphics = FormGraph.CreateGraphics()
-            Using pen As New Pen(Color.Black)
+            Using brush As New SolidBrush(Color.Blue)
                 clientCursorPosition.X -= VertexRadius / 2
                 clientCursorPosition.Y -= VertexRadius / 2
-                graphics.DrawEllipse(pen, clientCursorPosition.X, clientCursorPosition.Y, VertexRadius, VertexRadius)
+                graphics.FillEllipse(brush, clientCursorPosition.X, clientCursorPosition.Y, VertexRadius, VertexRadius)
                 VertexService.Vertexes.Add(New Vertex(clientCursorPosition, VertexRadius))
                 Dim lastVertex As Vertex = VertexService.Vertexes.LastOrDefault
-                graphics.DrawString($"{lastVertex.VertexId}", FrmMain.Font, Brushes.Crimson, lastVertex.Position.X - VertexRadius, lastVertex.Position.Y - VertexRadius)
+                graphics.DrawString($"v{lastVertex.VertexId}", FrmMain.Font, Brushes.Black, lastVertex.Position.X - VertexRadius, lastVertex.Position.Y - VertexRadius)
             End Using
         End Using
+
     End Sub
     Public Sub DrawEdge()
         Using graphics As Graphics = FormGraph.CreateGraphics()
@@ -69,6 +70,10 @@ Public Class DrawingService
                     EdgeService.Edges.Add(New Edge(EdgeFirstVertex, EdgeSecondVertex))
                     EdgeFirstVertex.Degree += 1
                     EdgeSecondVertex.Degree += 1
+
+                    Dim middlePoint As PointF = New PointF((EdgeFirstVertex.Position.X + EdgeSecondVertex.Position.X - 30) / 2, (EdgeFirstVertex.Position.Y + EdgeSecondVertex.Position.Y - 30) / 2) ' el -30 es provisorio
+                    Dim lastEdge As Edge = EdgeService.Edges.LastOrDefault
+                    graphics.DrawString($"e{lastEdge.EdgeId}", FrmMain.Font, Brushes.Black, middlePoint)
                 End Using
 
                 ResetDrawing()
