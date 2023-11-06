@@ -41,6 +41,8 @@ Partial Class FrmMain
         LblTotalDegree = New Label()
         LblEdgesQuantity = New Label()
         LblVertexQuantity = New Label()
+        BtnColorPicker = New Button()
+        ColorDialogVertex = New ColorDialog()
         Panel1.SuspendLayout()
         PanelData.SuspendLayout()
         SuspendLayout()
@@ -60,7 +62,7 @@ Partial Class FrmMain
         BtnAnalyzeGraph.FlatStyle = FlatStyle.Flat
         BtnAnalyzeGraph.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         BtnAnalyzeGraph.ForeColor = SystemColors.ControlLightLight
-        BtnAnalyzeGraph.Location = New Point(281, 9)
+        BtnAnalyzeGraph.Location = New Point(555, 9)
         BtnAnalyzeGraph.Name = "BtnAnalyzeGraph"
         BtnAnalyzeGraph.Size = New Size(131, 39)
         BtnAnalyzeGraph.TabIndex = 2
@@ -84,6 +86,7 @@ Partial Class FrmMain
         ' Panel1
         ' 
         Panel1.BackColor = Color.FromArgb(CByte(21), CByte(21), CByte(21))
+        Panel1.Controls.Add(BtnColorPicker)
         Panel1.Controls.Add(BtnClearGraph)
         Panel1.Controls.Add(BtnDrawVertex)
         Panel1.Controls.Add(BtnAnalyzeGraph)
@@ -271,6 +274,20 @@ Partial Class FrmMain
         LblVertexQuantity.TabIndex = 0
         LblVertexQuantity.Text = "Número de vértices"
         ' 
+        ' BtnColorPicker
+        ' 
+        BtnColorPicker.BackColor = Color.RoyalBlue
+        BtnColorPicker.FlatAppearance.BorderSize = 0
+        BtnColorPicker.FlatStyle = FlatStyle.Flat
+        BtnColorPicker.Font = New Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnColorPicker.ForeColor = SystemColors.ControlLightLight
+        BtnColorPicker.Location = New Point(281, 9)
+        BtnColorPicker.Name = "BtnColorPicker"
+        BtnColorPicker.Size = New Size(131, 39)
+        BtnColorPicker.TabIndex = 4
+        BtnColorPicker.Text = "CAMBIAR COLOR (V)"
+        BtnColorPicker.UseVisualStyleBackColor = False
+        ' 
         ' FrmMain
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -309,11 +326,12 @@ Partial Class FrmMain
     Friend WithEvents CombListSelectVertex As ComboBox
     Friend WithEvents BtnMatrixIncidence As Button
     Friend WithEvents BtnMatrixAdjacency As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BtnColorPicker As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents BtnClearGraph As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button6 As Button
     Friend WithEvents Button5 As Button
+    Friend WithEvents ColorDialogVertex As ColorDialog
 End Class

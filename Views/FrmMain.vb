@@ -203,4 +203,10 @@ Public Class FrmMain
         CombListSelectVertex.ResetText()
         CombListSelectVertex.DropDownHeight = CombListSelectVertex.ItemHeight
     End Sub
+
+    Private Sub BtnColorPicker_Click(sender As Object, e As EventArgs) Handles BtnColorPicker.Click
+        If ColorDialogVertex.ShowDialog() = DialogResult.OK Then
+            DrawingService.VertexColor = ColorDialogVertex.Color
+        End If
+    End Sub
 End Class

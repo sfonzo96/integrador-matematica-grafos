@@ -4,6 +4,7 @@ Public Class DrawingService
     Public Property EdgeFirstVertex As Vertex = Nothing
     Public Property EdgeSecondVertex As Vertex = Nothing
     Private Property DrawingLine As Boolean = False
+    Public Shared Property VertexColor As Color = Color.Blue
     Private Property FormGraph As Form
     Public Sub New(form As Form)
         FormGraph = form
@@ -15,7 +16,7 @@ Public Class DrawingService
             Return
         End If
         Using graphics As Graphics = FormGraph.CreateGraphics()
-            Using brush As New SolidBrush(Color.Blue)
+            Using brush As New SolidBrush(VertexColor)
                 clientCursorPosition.X -= VertexRadius / 2
                 clientCursorPosition.Y -= VertexRadius / 2
                 graphics.FillEllipse(brush, clientCursorPosition.X, clientCursorPosition.Y, VertexRadius, VertexRadius)
