@@ -1,43 +1,43 @@
-# Trabajo Integrador Matem·tica 
-Programa para el an·lisis de grafos simples
+# Trabajo Integrador Matem√°tica 
+Programa para el an√°lisis de grafos simples
 
 ## Demo link:
-Puedes descargar y probar el programa desde el siguiente [enlace](https://drive.google.com/file/d/1D1_4CbgY0yABackcAiC01YjN5bjCpDnU/view?usp=drive_link)
+Puedes descargar y probar el programa desde el siguiente [enlace](https://drive.google.com/drive/folders/13j19hn3U5dX7C7m3EfbQ4284rgGhsS8H?usp=drive_link)
 
 ## Tabla de Contenidos:
 
 - [Sobre el Programa](#sobre-el-programa)
 - [Screenshots](#screenshots)
-- [TecnologÌas](#TecnologÌas)
+- [Tecnolog√≠as](#Tecnolog√≠as)
 - [Autores](#Autores)
 - [Licencia](#licencia)
 
 ## Sobre el Programa
-Este programa es una aplicaciÛn desarrollada en Visual Basic .NET que proporciona a los usuarios una herramienta completa para crear, visualizar y analizar grafos simples. Los grafos son estructuras matem·ticas que consisten en vÈrtices (nodos) y aristas (conexiones entre vÈrtices) y se utilizan en una amplia variedad de campos, como la teorÌa de redes, la inform·tica, la biologÌa y m·s. Esta aplicaciÛn simplifica el proceso de trabajar con grafos y ofrece una serie de funciones esenciales de an·lisis.
+Este programa es una aplicaci√≥n desarrollada en Visual Basic .NET que proporciona a los usuarios una herramienta completa para crear, visualizar y analizar grafos simples. Los grafos son estructuras matem√°ticas que consisten en v√©rtices (nodos) y aristas (conexiones entre v√©rtices) y se utilizan en una amplia variedad de campos, como la teor√≠a de redes, la inform√°tica, la biolog√≠a y m√°s. Esta aplicaci√≥n simplifica el proceso de trabajar con grafos y ofrece una serie de funciones esenciales de an√°lisis.
 
-## CaracterÌsticas Clave:
+## Caracter√≠sticas Clave:
 
-- Dibujo de Grafos Interactivo: Los usuarios pueden crear y editar grafos de manera intuitiva a travÈs de una interfaz de dibujo interactiva. Pueden agregar vÈrtices, conectarlos con aristas y personalizar la apariencia de los elementos.
+- Dibujo de Grafos Interactivo: Los usuarios pueden crear y editar grafos de manera intuitiva a trav√©s de una interfaz de dibujo interactiva. Pueden agregar v√©rtices, conectarlos con aristas y personalizar la apariencia de los elementos.
 
-- An·lisis de Grafos: Este programa ofrece varias herramientas de an·lisis, incluyendo:
+- An√°lisis de Grafos: Este programa ofrece varias herramientas de an√°lisis, incluyendo:
 
-    - N˙mero de VÈrtices: Muestra la cantidad de vÈrtices en el grafo.
-    - N˙mero de Aristas: Proporciona la cantidad de aristas en el grafo.
-    - Suma de Grados: Calcula la suma de los grados de todos los vÈrtices en el grafo.
-    - Grado del VÈrtice Seleccionado: Permite a los usuarios seleccionar un vÈrtice y muestra su grado especÌfico.
+    - N√∫mero de V√©rtices: Muestra la cantidad de v√©rtices en el grafo.
+    - N√∫mero de Aristas: Proporciona la cantidad de aristas en el grafo.
+    - Suma de Grados: Calcula la suma de los grados de todos los v√©rtices en el grafo.
+    - Grado del V√©rtice Seleccionado: Permite a los usuarios seleccionar un v√©rtice y muestra su grado espec√≠fico.
     - Matriz de Adyacencia: Genera y muestra la matriz de adyacencia del grafo.
     - Matriz de Incidencia: Genera y muestra la matriz de incidencia del grafo.
-    - ExploraciÛn de Grafos: Los usuarios pueden navegar de manera eficiente por el grafo para inspeccionar relaciones, identificar ciclos y detectar otros patrones importantes.
+    - Exploraci√≥n de Grafos: Los usuarios pueden navegar de manera eficiente por el grafo para inspeccionar relaciones, identificar ciclos y detectar otros patrones importantes.
 
-- ExportaciÛn de Datos: Los usuarios pueden guardar grafos y resultados de an·lisis en varios formatos, como im·genes, documentos de texto o archivos de hoja de c·lculo, lo que facilita la presentaciÛn y la utilizaciÛn de los resultados.
+- Exportaci√≥n de Datos: Los usuarios pueden guardar grafos y resultados de an√°lisis en varios formatos, como im√°genes, documentos de texto o archivos de hoja de c√°lculo, lo que facilita la presentaci√≥n y la utilizaci√≥n de los resultados.
 
-- Interfaz de Usuario Amigable: La aplicaciÛn cuenta con una interfaz de usuario intuitiva con herramientas f·ciles de usar, que incluyen men˙s desplegables, cuadros de di·logo y paneles de informaciÛn que guÌan al usuario a travÈs del proceso de dibujo y an·lisis.
+- Interfaz de Usuario Amigable: La aplicaci√≥n cuenta con una interfaz de usuario intuitiva con herramientas f√°ciles de usar, que incluyen men√∫s desplegables, cuadros de di√°logo y paneles de informaci√≥n que gu√≠an al usuario a trav√©s del proceso de dibujo y an√°lisis.
 
 ## Aplicaciones Potenciales:
 
-- EducaciÛn: Este programa puede utilizarse como una herramienta educativa para enseÒar conceptos de teorÌa de grafos y matem·ticas discretas.
-- InvestigaciÛn CientÌfica: Los investigadores pueden utilizar la herramienta para analizar y visualizar redes en campos como biologÌa, quÌmica y ciencias sociales.
-- Desarrollo de Software: Puede ser ˙til en el diseÒo y an·lisis de algoritmos y sistemas basados en grafos.
+- Educaci√≥n: Este programa puede utilizarse como una herramienta educativa para ense√±ar conceptos de teor√≠a de grafos y matem√°ticas discretas.
+- Investigaci√≥n Cient√≠fica: Los investigadores pueden utilizar la herramienta para analizar y visualizar redes en campos como biolog√≠a, qu√≠mica y ciencias sociales.
+- Desarrollo de Software: Puede ser √∫til en el dise√±o y an√°lisis de algoritmos y sistemas basados en grafos.
 
 ## Screenshots
 
@@ -45,7 +45,7 @@ Este programa es una aplicaciÛn desarrollada en Visual Basic .NET que proporcion
 
 <img src="https://github.com/sfonzo96/integrador-matematica-grafos/blob/develop/alejandro/Screenshots/Screenshot2.png">
 
-## TecnologÌas
+## Tecnolog√≠as
 
 Visual Basic .NET 6.0 
 
