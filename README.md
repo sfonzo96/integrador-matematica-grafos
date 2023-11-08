@@ -56,10 +56,10 @@ Visual Basic .NET 6.0
 
 ## Autores
 
-<a href="https://github.com/sfonzo96" style="border-radius:50%;">
-   <img src="https://avatars.githubusercontent.com/u/81027188" alt="Nombre del Contribuidor" width="85" style="border-radius:50%;">
+<a href="https://github.com/sfonzo96">
+   <img src="https://avatars.githubusercontent.com/u/81027188" alt="Santiago Fonzo" width="85">
 </a>
 
-<a href="https://github.com/7AleGz" style="border-radius:50%;">
-   <img src="https://avatars.githubusercontent.com/u/92764868" alt="Nombre del Contribuidor" width="85" style="border-radius:50%;">
+<a href="https://github.com/7AleGz">
+   <img src="https://avatars.githubusercontent.com/u/92764868" alt="Alejandro Gómez" width="85">
 </a>
