@@ -6,7 +6,13 @@
     <StartupObject>Sub Main</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
+    <ApplicationIcon>graph.ico</ApplicationIcon>
+    <PackageIcon>pngwing.com.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="graph.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Import Include="System.Data" />

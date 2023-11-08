@@ -1,7 +1,8 @@
-﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-
-Public Class FrmMain
+﻿Public Class FrmMain
     Public Shared Property SelectedDrawing As String = "Vertex"
+    Private Property CurrentHeight As Integer = Me.Height
+    Private Property CurrentWidth As Integer = Me.Width
+
 
     Private Sub BtnClearGraph_Click(sender As Object, e As EventArgs) Handles BtnClearGraph.Click
         ResetMainForm()
@@ -9,19 +10,16 @@ Public Class FrmMain
         SetBtnColor(BtnDrawVertex, "red")
         SetBtnColor(BtnDrawEdge, "blue")
     End Sub
-
     Private Sub BtnDrawEdge_Click(sender As Object, e As EventArgs) Handles BtnDrawEdge.Click
         SelectedDrawing = "Edge"
         SetBtnColor(BtnDrawVertex, "blue")
         SetBtnColor(BtnDrawEdge, "red")
     End Sub
-
     Private Sub BtnDrawVertex_Click(sender As Object, e As EventArgs) Handles BtnDrawVertex.Click
         SelectedDrawing = "Vertex"
         SetBtnColor(BtnDrawVertex, "red")
         SetBtnColor(BtnDrawEdge, "blue")
     End Sub
-
     Private Sub PanelDraw_Paint(sender As Object, e As PaintEventArgs) Handles PanelDraw.Paint
         Dim frmGraph As New FrmGraph With {
             .TopLevel = False,
@@ -35,7 +33,7 @@ Public Class FrmMain
         ResetAnalisis()
         TxtEdgesQuantity.Text = Edge.MaxId
         TxtVertexQuantity.Text = Vertex.MaxId
-        TxtTotalDegree.Text = VertexService.GetTotalDegree()
+        TxtTotalDegree.Text = VertexService.GetDegreeSum()
         LoadVertexList()
         SetBtnColor(BtnDrawVertex, "red")
         SetBtnColor(BtnDrawEdge, "blue")
@@ -45,7 +43,6 @@ Public Class FrmMain
         Dim vertexId As Integer = CombListSelectVertex.SelectedItem.ToString().Substring(1)
         TxtVertexDegree.Text = VertexService.Vertexes.FirstOrDefault(Function(v) v.VertexId = vertexId)?.Degree
     End Sub
-
     Private Sub BtnMatrixAdjacency_Click(sender As Object, e As EventArgs) Handles BtnMatrixAdjacency.Click
         Dim frmMatrix As New FrmMatrix With {
                 .Text = "Matriz de adyacencia"
@@ -102,7 +99,6 @@ Public Class FrmMain
         SetBtnColor(BtnDrawVertex, "red")
         SetBtnColor(BtnDrawEdge, "blue")
     End Sub
-
     Private Sub BtnMatrixIncidence_Click(sender As Object, e As EventArgs) Handles BtnMatrixIncidence.Click
         Dim frmMatrix As New FrmMatrix With {
             .Text = "Matriz de incidencia"
@@ -161,14 +157,48 @@ Public Class FrmMain
     End Sub
 
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        BtnDrawVertex.BackColor = Color.Red
+        SetBtnColor(BtnDrawVertex, "red")
     End Sub
 
-    Private Sub ResetBtnColor()
-        BtnDrawVertex.BackColor = Color.RoyalBlue
-        BtnDrawEdge.BackColor = Color.RoyalBlue
+    Private Sub FrmMain_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+
+        'If Me.WindowState = FormWindowState.Minimized Then
+        '    Return
+        'End If
+
+        Dim heightChangeRatio As Double = (Me.Height - Me.CurrentHeight) / Me.CurrentHeight
+        Dim widthtChangeRatio As Double = (Me.Width - Me.CurrentWidth) / Me.CurrentWidth
+
+        ResizeControls(Controls, widthtChangeRatio, widthtChangeRatio)
+
+        Me.CurrentHeight = Me.Height
+        Me.CurrentWidth = Me.Width
     End Sub
 
+    Private Sub ResizeControls(controls As Control.ControlCollection, widthRatio As Double, heightRatio As Double)
+        For Each control In controls
+            control.Width += CInt(control.Width * widthRatio)
+            control.Left += CInt(control.Left * widthRatio)
+            control.Top += CInt(control.Top * heightRatio)
+            control.Height += CInt(control.Height * heightRatio)
+
+            If TypeOf control Is Button Or TypeOf control Is Label Or TypeOf control Is TextBox Then
+                Dim fontFamily As New FontFamily("Bahnschrift")
+                Dim newFontSize As Single = control.Font.Size * heightRatio
+                Dim fontStyle As FontStyle = FontStyle.Bold
+
+                If newFontSize <= 0 OrElse newFontSize > Single.MaxValue Then
+                    newFontSize = Convert.ToSingle(9.75)
+                End If
+
+                control.Font = New Font(fontFamily, newFontSize, fontStyle)
+            End If
+
+            If control.HasChildren Then
+                ResizeControls(control.Controls, widthRatio, heightRatio)
+            End If
+        Next
+    End Sub
     Private Sub SetBtnColor(ByRef button As Control, btnColor As String)
         If btnColor = "blue" Then
             button.BackColor = Color.RoyalBlue
@@ -177,14 +207,12 @@ Public Class FrmMain
 
         button.BackColor = Color.Red
     End Sub
-
     Private Sub LoadVertexList()
         For Each vertex In VertexService.Vertexes
             CombListSelectVertex.Items.Add($"v{vertex.VertexId}")
         Next
         CombListSelectVertex.DropDownHeight = CombListSelectVertex.ItemHeight * (CombListSelectVertex.Items.Count + 1)
     End Sub
-
     Private Sub ResetMainForm()
         PanelDraw.Refresh()
         VertexService.Vertexes.Clear()
@@ -193,7 +221,6 @@ Public Class FrmMain
         Edge.MaxId = 0
         FrmMain.SelectedDrawing = "Vertex"
     End Sub
-
     Private Sub ResetAnalisis()
         TxtEdgesQuantity.Clear()
         TxtVertexQuantity.Clear()
@@ -203,10 +230,19 @@ Public Class FrmMain
         CombListSelectVertex.ResetText()
         CombListSelectVertex.DropDownHeight = CombListSelectVertex.ItemHeight
     End Sub
-
-    Private Sub BtnColorPicker_Click(sender As Object, e As EventArgs) Handles BtnColorPicker.Click
+    Private Sub BtnColorVertex_Click(sender As Object, e As EventArgs) Handles BtnColorVertex.Click
         If ColorDialogVertex.ShowDialog() = DialogResult.OK Then
             DrawingService.VertexColor = ColorDialogVertex.Color
         End If
+    End Sub
+
+    Private Sub BtnColorEdge_Click(sender As Object, e As EventArgs) Handles BtnColorEdge.Click
+        If ColorDialogEdge.ShowDialog() = DialogResult.OK Then
+            DrawingService.EdgeColor = ColorDialogEdge.Color
+        End If
+    End Sub
+
+    Private Sub FrmMain_Closed(sender As Object, e As EventArgs) Handles MyBase.Closed
+        Application.Exit()
     End Sub
 End Class

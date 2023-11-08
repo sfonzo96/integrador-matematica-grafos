@@ -1,6 +1,7 @@
 ﻿Imports System.Windows.Forms.VisualStyles
 
 Public Class MatrixService
+
     Public Shared Function GetAdjacencyMatrix() As Integer(,)
         Dim vertexQuantity As Integer = VertexService.Vertexes.Count
         Dim adjacencyMatrix(vertexQuantity - 1, vertexQuantity - 1) As Integer
@@ -52,4 +53,5 @@ Public Class MatrixService
         End If
         Return False
     End Function
+
 End Class

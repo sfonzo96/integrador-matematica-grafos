@@ -1,10 +1,11 @@
 ﻿
 Public Class DrawingService
-    Private Property VertexRadius As Decimal = 15
+    Private Property VertexDiameter As Decimal = 20
     Public Property EdgeFirstVertex As Vertex = Nothing
     Public Property EdgeSecondVertex As Vertex = Nothing
     Private Property DrawingLine As Boolean = False
-    Public Shared Property VertexColor As Color = Color.Blue
+    Public Shared Property VertexColor As Color = Color.Gray
+    Public Shared Property EdgeColor As Color = Color.Gray
     Private Property FormGraph As Form
     Public Sub New(form As Form)
         FormGraph = form
@@ -17,15 +18,14 @@ Public Class DrawingService
         End If
         Using graphics As Graphics = FormGraph.CreateGraphics()
             Using brush As New SolidBrush(VertexColor)
-                clientCursorPosition.X -= VertexRadius / 2
-                clientCursorPosition.Y -= VertexRadius / 2
-                graphics.FillEllipse(brush, clientCursorPosition.X, clientCursorPosition.Y, VertexRadius, VertexRadius)
-                VertexService.Vertexes.Add(New Vertex(clientCursorPosition, VertexRadius))
+                clientCursorPosition.X -= VertexDiameter / 2
+                clientCursorPosition.Y -= VertexDiameter / 2
+                graphics.FillEllipse(brush, clientCursorPosition.X, clientCursorPosition.Y, VertexDiameter, VertexDiameter)
+                VertexService.Vertexes.Add(New Vertex(clientCursorPosition, VertexDiameter))
                 Dim lastVertex As Vertex = VertexService.Vertexes.LastOrDefault
-                graphics.DrawString($"v{lastVertex.VertexId}", FrmMain.Font, Brushes.Black, lastVertex.Position.X - VertexRadius, lastVertex.Position.Y - VertexRadius)
+                graphics.DrawString($"v{lastVertex.VertexId}", FrmMain.Font, Brushes.Black, lastVertex.Position.X - VertexDiameter, lastVertex.Position.Y - VertexDiameter)
             End Using
         End Using
-
     End Sub
     Public Sub DrawEdge()
         Using graphics As Graphics = FormGraph.CreateGraphics()
@@ -66,8 +66,8 @@ Public Class DrawingService
                     Return
                 End If
 
-                Using pen As New Pen(Color.Blue)
-                    graphics.DrawLine(pen, EdgeFirstVertex.Position + New Point(VertexRadius / 2, VertexRadius / 2), EdgeSecondVertex.Position + New Point(VertexRadius / 2, VertexRadius / 2))
+                Using pen As New Pen(EdgeColor)
+                    graphics.DrawLine(pen, EdgeFirstVertex.Position + New Point(VertexDiameter / 2, VertexDiameter / 2), EdgeSecondVertex.Position + New Point(VertexDiameter / 2, VertexDiameter / 2))
                     EdgeService.Edges.Add(New Edge(EdgeFirstVertex, EdgeSecondVertex))
                     EdgeFirstVertex.Degree += 1
                     EdgeSecondVertex.Degree += 1
@@ -81,10 +81,11 @@ Public Class DrawingService
             End If
         End Using
     End Sub
+
     Public Function GetClickedVertex(edgePoint As Point) As Vertex
         For Each vertex In VertexService.Vertexes
-            Dim distance As Decimal = Math.Sqrt(((edgePoint.X - VertexRadius / 2) - vertex.Position.X) ^ 2 + ((edgePoint.Y - VertexRadius / 2) - vertex.Position.Y) ^ 2)
-            If distance < VertexRadius Then
+            Dim distance As Decimal = Math.Sqrt(((edgePoint.X - VertexDiameter / 2) - vertex.Position.X) ^ 2 + ((edgePoint.Y - VertexDiameter / 2) - vertex.Position.Y) ^ 2)
+            If distance < VertexDiameter Then
                 Return vertex
             End If
         Next
@@ -92,8 +93,8 @@ Public Class DrawingService
     End Function
     Public Function IsOverAVertex(newVertexPoint As Point) As Boolean
         For Each vertex In VertexService.Vertexes
-            Dim distance As Decimal = Math.Sqrt((newVertexPoint.X - VertexRadius / 2 - vertex.Position.X) ^ 2 + (newVertexPoint.Y - VertexRadius / 2 - vertex.Position.Y) ^ 2)
-            If distance < 2 * VertexRadius Then
+            Dim distance As Decimal = Math.Sqrt((newVertexPoint.X - VertexDiameter / 2 - vertex.Position.X) ^ 2 + (newVertexPoint.Y - VertexDiameter / 2 - vertex.Position.Y) ^ 2)
+            If distance < 2 * VertexDiameter Then
                 Return True
             End If
         Next
