@@ -2,8 +2,8 @@
     Public Shared Property SelectedDrawing As String = "Vertex"
     Private Property CurrentHeight As Integer = Me.Height
     Private Property CurrentWidth As Integer = Me.Width
-
-
+    Private OriginalDpiX As Single = 96.0F ' The default DPI for standard screens
+    Private OriginalDpiY As Single = 96.0F
     Private Sub BtnClearGraph_Click(sender As Object, e As EventArgs) Handles BtnClearGraph.Click
         ResetMainForm()
         ResetAnalisis()
@@ -160,45 +160,45 @@
         SetBtnColor(BtnDrawVertex, "red")
     End Sub
 
-    Private Sub FrmMain_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+    'Private Sub FrmMain_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
 
-        'If Me.WindowState = FormWindowState.Minimized Then
-        '    Return
-        'End If
+    '    'If Me.WindowState = FormWindowState.Minimized Then
+    '    '    Return
+    '    'End If
 
-        Dim heightChangeRatio As Double = (Me.Height - Me.CurrentHeight) / Me.CurrentHeight
-        Dim widthtChangeRatio As Double = (Me.Width - Me.CurrentWidth) / Me.CurrentWidth
+    '    Dim heightChangeRatio As Double = (Me.Height - Me.CurrentHeight) / Me.CurrentHeight
+    '    Dim widthtChangeRatio As Double = (Me.Width - Me.CurrentWidth) / Me.CurrentWidth
 
-        ResizeControls(Controls, widthtChangeRatio, widthtChangeRatio)
+    '    ResizeControls(Controls, widthtChangeRatio, widthtChangeRatio)
 
-        Me.CurrentHeight = Me.Height
-        Me.CurrentWidth = Me.Width
-    End Sub
+    '    Me.CurrentHeight = Me.Height
+    '    Me.CurrentWidth = Me.Width
+    'End Sub
 
-    Private Sub ResizeControls(controls As Control.ControlCollection, widthRatio As Double, heightRatio As Double)
-        For Each control In controls
-            control.Width += CInt(control.Width * widthRatio)
-            control.Left += CInt(control.Left * widthRatio)
-            control.Top += CInt(control.Top * heightRatio)
-            control.Height += CInt(control.Height * heightRatio)
+    'Private Sub ResizeControls(controls As Control.ControlCollection, widthRatio As Double, heightRatio As Double)
+    '    For Each control In controls
+    '        control.Width += CInt(control.Width * widthRatio)
+    '        control.Left += CInt(control.Left * widthRatio)
+    '        control.Top += CInt(control.Top * heightRatio)
+    '        control.Height += CInt(control.Height * heightRatio)
 
-            If TypeOf control Is Button Or TypeOf control Is Label Or TypeOf control Is TextBox Then
-                Dim fontFamily As New FontFamily("Bahnschrift")
-                Dim newFontSize As Single = control.Font.Size * heightRatio
-                Dim fontStyle As FontStyle = FontStyle.Bold
+    '        If TypeOf control Is Button Or TypeOf control Is Label Or TypeOf control Is TextBox Then
+    '            Dim fontFamily As New FontFamily("Bahnschrift")
+    '            Dim newFontSize As Single = control.Font.Size * heightRatio
+    '            Dim fontStyle As FontStyle = FontStyle.Bold
 
-                If newFontSize <= 0 OrElse newFontSize > Single.MaxValue Then
-                    newFontSize = Convert.ToSingle(9.75)
-                End If
+    '            If newFontSize <= 0 OrElse newFontSize > Single.MaxValue Then
+    '                newFontSize = Convert.ToSingle(9.75)
+    '            End If
 
-                control.Font = New Font(fontFamily, newFontSize, fontStyle)
-            End If
+    '            control.Font = New Font(fontFamily, newFontSize, fontStyle)
+    '        End If
 
-            If control.HasChildren Then
-                ResizeControls(control.Controls, widthRatio, heightRatio)
-            End If
-        Next
-    End Sub
+    '        If control.HasChildren Then
+    '            ResizeControls(control.Controls, widthRatio, heightRatio)
+    '        End If
+    '    Next
+    'End Sub
     Private Sub SetBtnColor(ByRef button As Control, btnColor As String)
         If btnColor = "blue" Then
             button.BackColor = Color.RoyalBlue
