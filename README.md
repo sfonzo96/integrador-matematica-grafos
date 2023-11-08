@@ -9,6 +9,7 @@ Puedes descargar y probar el programa desde el siguiente [enlace](https://drive.
 - [Sobre el Programa](#sobre-el-programa)
 - [Screenshots](#screenshots)
 - [Tecnologías](#Tecnologías)
+- [Autores](#Autores)
 - [Licencia](#licencia)
 
 ## Sobre el Programa
