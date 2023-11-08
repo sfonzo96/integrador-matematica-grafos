@@ -53,3 +53,15 @@ Visual Basic .NET 6.0
 ## Licencia
 
 [MIT](https://github.com/sfonzo96/integrador-matematica-grafos/blob/main/LICENSE)
+
+## Autores
+
+<a href="https://avatars.githubusercontent.com/u/81027188">
+   <img src="https://avatars.githubusercontent.com/u/81027188?v=4" alt="Nombre del Contribuidor" width="100" style="border-radius:50%;">
+   https://github.com/sfonzo96
+</a>
+
+<a href="https://avatars.githubusercontent.com/u/92764868">
+   <img src="https://avatars.githubusercontent.com/u/81027188?v=4" alt="Nombre del Contribuidor" width="100" style="border-radius:50%;">
+   https://github.com/7AleGz
+</a>
